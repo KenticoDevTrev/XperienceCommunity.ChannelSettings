@@ -10,9 +10,9 @@ Huge shout out to [Dragoljub and his repository](https://github.com/drilic/xperi
 ## Installation
 1. Install the Nuget Packages into your project:
     * There are 3 packages, each with different dependencies for Kentico Libraries, so you can install them seprately on different projects to keep concerns separated
-    * XperienceCommunity.ChannelSettings.Core = Kentico Agnostic, contains `IChannelCustomSettingsRepository` (settings retrieval) and `XperienceSettingsData` (Model decoration)
-    * XperienceCommunity.ChannelSettings = Kentico.Xperience.Core dependent, contains actual logic.  Install this on your MVC Site itself.
-    * XperienceCommunity.ChannelSettings.Admin = Kentico.Xperience.Admin dependent, contains `ChannelCustomSettingsPage` Class which you inherit from and use when creating your `UIPage` for editing your settings.
+    * `XperienceCommunity.ChannelSettings.Core` = Kentico Agnostic, contains `IChannelCustomSettingsRepository` (settings retrieval) and `XperienceSettingsData` (Model decoration)
+    * `XperienceCommunity.ChannelSettings` = Kentico.Xperience.Core dependent, contains actual logic.  Install this on your MVC Site itself.
+    * `XperienceCommunity.ChannelSettings.Admin` = Kentico.Xperience.Admin dependent, contains `ChannelCustomSettingsPage` Class which you inherit from and use when creating your `UIPage` for editing your settings.
 2. In your startup code, add `builder.Services.AddChannelCustomSettings();`
 
 ## Create your Custom Settings Model(s)
