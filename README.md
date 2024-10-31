@@ -79,7 +79,8 @@ namespace XperienceCommunity.ChannelSettings.Admin
 
 With the above, you can now go to `/admin/channels/list` (Admin -> Configuration -> Channels), select your channel, and you should now see your UI Page on the section when you edit.
 
-[Picture here]
+![image](https://github.com/user-attachments/assets/42b71fa7-aa5b-47d5-b188-f8a63a040294)
+
 
 ## Getting your Settings
 
