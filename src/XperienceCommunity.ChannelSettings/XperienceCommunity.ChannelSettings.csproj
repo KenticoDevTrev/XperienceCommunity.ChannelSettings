@@ -4,6 +4,20 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>XperienceCommunity.ChannelSettings</Title>
+    <Authors>Trevor Fayas and Dragoljub</Authors>
+    <Company>Kentico Community</Company>
+    <Description>Allows easy creation and modification of Channel Settings in Xperience by Kentico</Description>
+    <Copyright>https://github.com/KenticoDevTrev/XperienceCommunity.ChannelSettings</Copyright>
+    <PackageProjectUrl>https://github.com/KenticoDevTrev/XperienceCommunity.ChannelSettings</PackageProjectUrl>
+    <PackageIcon>kentico-icon-128x128.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/KenticoDevTrev/XperienceCommunity.ChannelSettings</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>settings, xperience, xbyk, xperience by kentico</PackageTags>
+    <PackageReleaseNotes>Inital Release</PackageReleaseNotes>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,7 +25,22 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\..\..\kentico-icon-128x128.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Kentico.Xperience.Core" Version="29.6.0" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
