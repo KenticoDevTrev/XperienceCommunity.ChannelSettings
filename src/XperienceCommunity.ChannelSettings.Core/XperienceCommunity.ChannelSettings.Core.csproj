@@ -18,6 +18,7 @@
     <PackageTags>settings, xperience, xbyk, xperience by kentico</PackageTags>
     <PackageReleaseNotes>Inital Release</PackageReleaseNotes>
     <Version>1.0.1</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
 
