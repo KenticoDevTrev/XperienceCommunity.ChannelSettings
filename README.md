@@ -4,8 +4,18 @@ This package allows you to easily create strongly-typed Settings models that can
 Huge shout out to [Dragoljub and his repository](https://github.com/drilic/xperience-ui-customsettings) which laid the groundwork for this module.
 
 ## Requirements
-* **Kentico.Xperience.Admin 29.6.0** or newer version to use latest Xperience by Kentico
+* **Kentico.Xperience.Admin 30.0.0** or newer version to use latest Xperience by Kentico
 * **net8.0** as a long-term support (LTS) release
+
+## Library Version Matrix and Dependency Notice
+
+This project is using [Xperience Version v30.0.0](https://docs.kentico.com/changelog#refresh-november-14-2024)
+
+| Xperience Version  | Library Version |
+| ------------------ | --------------- |
+| >= 30.0.*          | 1.1.0           |
+|    29.6.*          | 1.0.0           |
+
 
 ## Installation
 1. Install the Nuget Packages into your project:

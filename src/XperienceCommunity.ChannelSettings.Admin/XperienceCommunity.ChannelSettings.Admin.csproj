@@ -16,8 +16,8 @@
     <RepositoryUrl>https://github.com/KenticoDevTrev/XperienceCommunity.ChannelSettings</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>settings, xperience, xbyk, xperience by kentico</PackageTags>
-    <PackageReleaseNotes>Inital Release</PackageReleaseNotes>
-    <Version>1.0.1</Version>
+    <PackageReleaseNotes>Updated to Xperience 30 and replaced Core with WebApp dependency</PackageReleaseNotes>
+    <Version>1.1.0</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
@@ -39,7 +39,8 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Kentico.Xperience.Admin" Version="29.6.0" />
+    <PackageReference Include="Kentico.Xperience.Admin" Version="30.0.0" />
+    <PackageReference Include="Kentico.Xperience.WebApp" Version="30.0.0" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

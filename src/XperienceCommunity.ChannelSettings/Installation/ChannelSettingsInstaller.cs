@@ -35,6 +35,7 @@ namespace XperienceCommunity.ChannelSettings.Installation
         private void InitializeChannelCustomSettingsInfo(ResourceInfo resource)
         {
             var info = DataClassInfoProvider.GetDataClassInfo(ChannelCustomSettingInfo.OBJECT_TYPE) ?? DataClassInfo.New(ChannelCustomSettingInfo.OBJECT_TYPE);
+            var formInfo = info.ClassID > 0 ? new FormInfo(info.ClassFormDefinition) : FormHelper.GetBasicFormDefinition(nameof(ChannelCustomSettingInfo.ChannelCustomSettingID));
 
             info.ClassName = "XperienceCommunity.ChannelCustomSetting";
             info.ClassTableName = "XperienceCommunity_ChannelCustomSetting";
@@ -42,72 +43,54 @@ namespace XperienceCommunity.ChannelSettings.Installation
             info.ClassType = ClassType.OTHER;
             info.ClassResourceID = resource.ResourceID;
 
-            var formInfo = FormHelper.GetBasicFormDefinition("ChannelCustomSettingID");
+            var formItem = GetFormField(formInfo, nameof(ChannelCustomSettingInfo.ChannelCustomSettingGuid));
+            formItem.AllowEmpty = false;
+            formItem.Visible = true;
+            formItem.Precision = 0;
+            formItem.DataType = "guid";
+            formItem.Enabled = true;
+            SetFormField(formInfo, formItem);
 
-            var formItem = new FormFieldInfo
-            {
-                Name = nameof(ChannelCustomSettingInfo.ChannelCustomSettingGuid),
-                AllowEmpty = false,
-                Visible = true,
-                Precision = 0,
-                DataType = "guid",
-                Enabled = true
-            };
-            formInfo.AddFormItem(formItem);
-            formItem = new FormFieldInfo
-            {
-                Name = nameof(ChannelCustomSettingInfo.ChannelCustomSettingLastModified),
-                AllowEmpty = false,
-                Visible = true,
-                Precision = 7,
-                DataType = "datetime",
-                Enabled = true
-            };
-            formInfo.AddFormItem(formItem);
+            formItem = GetFormField(formInfo, nameof(ChannelCustomSettingInfo.ChannelCustomSettingLastModified));
+            formItem.AllowEmpty = false;
+            formItem.Visible = true;
+            formItem.Precision = 7;
+            formItem.DataType = "datetime";
+            formItem.Enabled = true;
+            SetFormField(formInfo, formItem);
 
-            formItem = new FormFieldInfo
-            {
-                Name = nameof(ChannelCustomSettingInfo.ChannelCustomSettingKeyChannelID),
-                AllowEmpty = false,
-                Visible = true,
-                Precision = 0,
-                DataType = "integer",
-                ReferenceType = ObjectDependencyEnum.Required,
-                ReferenceToObjectType = ChannelInfo.OBJECT_TYPE,
-                Enabled = true
-            };
-            formInfo.AddFormItem(formItem);
+            formItem = GetFormField(formInfo, nameof(ChannelCustomSettingInfo.ChannelCustomSettingKeyChannelID));
+            formItem.AllowEmpty = false;
+            formItem.Visible = true;
+            formItem.Precision = 0;
+            formItem.DataType = "integer";
+            formItem.ReferenceType = ObjectDependencyEnum.Required;
+            formItem.ReferenceToObjectType = ChannelInfo.OBJECT_TYPE;
+            formItem.Enabled = true;
+            SetFormField(formInfo, formItem);
 
-            formItem = new FormFieldInfo
-            {
-                Name = nameof(ChannelCustomSettingInfo.ChannelCustomSettingKeyName),
-                AllowEmpty = false,
-                Visible = true,
-                Precision = 0,
-                Size = 100,
-                DataType = "text",
-                Enabled = true
-            };
-            formInfo.AddFormItem(formItem);
+            formItem = GetFormField(formInfo, nameof(ChannelCustomSettingInfo.ChannelCustomSettingKeyName));
+            formItem.AllowEmpty = false;
+            formItem.Visible = true;
+            formItem.Precision = 0;
+            formItem.Size = 100;
+            formItem.DataType = "text";
+            formItem.Enabled = true;
+            SetFormField(formInfo, formItem);
 
-            formItem = new FormFieldInfo
-            {
-                Name = nameof(ChannelCustomSettingInfo.ChannelCustomSettingKeyValue),
-                AllowEmpty = false,
-                Visible = true,
-                Precision = 0,
-                DataType = "longtext",
-                Enabled = true
-            };
-            formInfo.AddFormItem(formItem);
+            formItem = GetFormField(formInfo, nameof(ChannelCustomSettingInfo.ChannelCustomSettingKeyValue));
+            formItem.AllowEmpty = true;
+            formItem.Visible = true;
+            formItem.Precision = 0;
+            formItem.DataType = "longtext";
+            formItem.Enabled = true;
+            SetFormField(formInfo, formItem);
 
-            SetFormDefinition(info, formInfo);
+            info.ClassFormDefinition = formInfo.GetXmlDefinition();
 
-            if (info.HasChanged)
-            {
+            if (info.HasChanged) {
                 DataClassInfoProvider.SetDataClassInfo(info);
-                try
-                {
+                try {
                     // run SQL to set foreign keys
                     var foreignKeySql =
     @"
@@ -123,25 +106,23 @@ ALTER TABLE [dbo].[XperienceCommunity_ChannelCustomSetting] CHECK CONSTRAINT [FK
 END
 ";
                     ConnectionHelper.ExecuteNonQuery(foreignKeySql, [], QueryTypeEnum.SQLQuery);
-                }
-                catch (Exception ex)
-                {
-                    _eventLogService.LogException("ChannelSettingsInstaller", "InitializeChannelCustomSettings Error", ex);
+                } catch (Exception ex) {
+                    //_eventLogService.LogException("ChannelSettingsInstaller", "InitializeChannelCustomSettings Error", ex);
                 }
             }
         }
 
-        private static void SetFormDefinition(DataClassInfo info, FormInfo form)
+        private static FormFieldInfo GetFormField(FormInfo formInfo, string fieldName)
         {
-            if (info.ClassID > 0)
-            {
-                var existingForm = new FormInfo(info.ClassFormDefinition);
-                existingForm.CombineWithForm(form, new());
-                info.ClassFormDefinition = existingForm.GetXmlDefinition();
-            }
-            else
-            {
-                info.ClassFormDefinition = form.GetXmlDefinition();
+            return formInfo.FieldExists(fieldName) ? formInfo.GetFormField(fieldName) : new FormFieldInfo() { Name = fieldName };
+        }
+
+        private static void SetFormField(FormInfo formInfo, FormFieldInfo field)
+        {
+            if (formInfo.FieldExists(field.Name)) {
+                formInfo.UpdateFormField(field.Name, field);
+            } else {
+                formInfo.AddFormItem(field);
             }
         }
     }

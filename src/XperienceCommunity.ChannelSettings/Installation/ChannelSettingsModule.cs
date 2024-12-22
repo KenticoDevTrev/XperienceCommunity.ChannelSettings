@@ -24,7 +24,7 @@ namespace XperienceCommunity.ChannelSettings.Events
             base.OnInit();
 
             _services = parameters.Services;
-            _installer = _services.GetRequiredService<ChannelSettingsInstaller>();
+            _installer = _services.GetService<ChannelSettingsInstaller>();
             ApplicationEvents.Initialized.Execute += InitializeModule;
 
             // Handle cache key clearing by key name, since they don't have a code name.
