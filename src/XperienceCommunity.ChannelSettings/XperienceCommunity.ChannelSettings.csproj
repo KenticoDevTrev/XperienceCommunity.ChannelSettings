@@ -16,8 +16,8 @@
     <RepositoryUrl>https://github.com/KenticoDevTrev/XperienceCommunity.ChannelSettings</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>settings, xperience, xbyk, xperience by kentico</PackageTags>
-    <PackageReleaseNotes>Updated to Xperience 30 and replaced Core with WebApp dependency</PackageReleaseNotes>
-    <Version>1.1.0</Version>
+    <PackageReleaseNotes>Set the DI to Singleton instead of Scoped</PackageReleaseNotes>
+    <Version>1.2.0</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 

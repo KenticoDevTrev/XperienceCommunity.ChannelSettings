@@ -11,8 +11,8 @@ namespace XperienceCommunity.ChannelSettings.Configuration
         {
             return services
                 .AddSingleton<ChannelSettingsInstaller>()
-                .AddScoped<IChannelSettingsInternalHelper, ChannelSettingsInternalHelper>()
-                .AddScoped<IChannelCustomSettingsRepository, ChannelCustomSettingsRepository>();
+                .AddSingleton<IChannelSettingsInternalHelper, ChannelSettingsInternalHelper>()
+                .AddSingleton<IChannelCustomSettingsRepository, ChannelCustomSettingsRepository>();
         }
     }
 }
