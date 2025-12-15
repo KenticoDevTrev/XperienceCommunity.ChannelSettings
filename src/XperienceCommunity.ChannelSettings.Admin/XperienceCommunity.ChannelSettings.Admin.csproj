@@ -16,8 +16,8 @@
     <RepositoryUrl>https://github.com/KenticoDevTrev/XperienceCommunity.ChannelSettings</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>settings, xperience, xbyk, xperience by kentico</PackageTags>
-    <PackageReleaseNotes>Updating version to match usage of Channel Settings 1.2.0 (using Singleton)</PackageReleaseNotes>
-    <Version>1.2.0</Version>
+    <PackageReleaseNotes>Updated to Xperience 31.0.0</PackageReleaseNotes>
+    <Version>1.3.0</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
@@ -39,8 +39,8 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Kentico.Xperience.Admin" Version="30.0.0" />
-    <PackageReference Include="Kentico.Xperience.WebApp" Version="30.0.0" />
+    <PackageReference Include="Kentico.Xperience.Admin" Version="31.0.0" />
+    <PackageReference Include="Kentico.Xperience.WebApp" Version="31.0.0" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

@@ -42,7 +42,7 @@ namespace XperienceCommunity.ChannelSettings.Admin.UI.ChannelCustomSettings
             var channel = _channelInfoProvider.Get(ObjectId);
             if (channel?.ChannelType != ChannelType.Website) {
                 PageConfiguration.SubmitConfiguration.Visible = false;
-                PageConfiguration.Disabled = true;
+                PageConfiguration.EditMode = FormEditMode.Disabled;
                 PageConfiguration.Headline = "Channel custom settings is not supported.";
 
                 PageConfiguration.Callouts =

@@ -32,7 +32,7 @@ namespace XperienceCommunity.ChannelSettings.Installation
             }
         }
 
-        private void InitializeChannelCustomSettingsInfo(ResourceInfo resource)
+        private static void InitializeChannelCustomSettingsInfo(ResourceInfo resource)
         {
             var info = DataClassInfoProvider.GetDataClassInfo(ChannelCustomSettingInfo.OBJECT_TYPE) ?? DataClassInfo.New(ChannelCustomSettingInfo.OBJECT_TYPE);
             var formInfo = info.ClassID > 0 ? new FormInfo(info.ClassFormDefinition) : FormHelper.GetBasicFormDefinition(nameof(ChannelCustomSettingInfo.ChannelCustomSettingID));
@@ -106,7 +106,7 @@ ALTER TABLE [dbo].[XperienceCommunity_ChannelCustomSetting] CHECK CONSTRAINT [FK
 END
 ";
                     ConnectionHelper.ExecuteNonQuery(foreignKeySql, [], QueryTypeEnum.SQLQuery);
-                } catch (Exception ex) {
+                } catch (Exception ) {
                     //_eventLogService.LogException("ChannelSettingsInstaller", "InitializeChannelCustomSettings Error", ex);
                 }
             }

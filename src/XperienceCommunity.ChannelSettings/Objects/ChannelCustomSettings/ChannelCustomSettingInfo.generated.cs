@@ -26,7 +26,7 @@ namespace XperienceCommunity.ChannelSettings
         /// <summary>
         /// Type information.
         /// </summary>
-        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(ChannelCustomSettingInfoProvider), OBJECT_TYPE, "XperienceCommunity.ChannelCustomSetting", "ChannelCustomSettingID", "ChannelCustomSettingLastModified", "ChannelCustomSettingGuid", "ChannelCustomSettingKeyName", null, null, null, null)
+        public static readonly ObjectTypeInfo TYPEINFO = new ObjectTypeInfo(typeof(ChannelCustomSettingInfoProvider), OBJECT_TYPE, "XperienceCommunity.ChannelCustomSetting", "ChannelCustomSettingID", "ChannelCustomSettingLastModified", "ChannelCustomSettingGuid", null, null, null, null, null)
         {
             TouchCacheDependencies = true,
             LogEvents = true,

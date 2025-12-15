@@ -9,11 +9,12 @@ Huge shout out to [Dragoljub and his repository](https://github.com/drilic/xperi
 
 ## Library Version Matrix and Dependency Notice
 
-This project is using [Xperience Version v30.0.0](https://docs.kentico.com/changelog#refresh-november-14-2024)
+This project is using [Xperience Version v31.0.0](https://docs.kentico.com/documentation/changelog#refresh-december-11-2025)
 
 | Xperience Version  | Library Version |
 | ------------------ | --------------- |
-| >= 30.0.*          | 1.1.0           |
+| >= 31.0.*          | 1.3.0           |
+| >= 30.0.0-30.12.3  | 1.2.1           |
 |    29.6.*          | 1.0.0           |
 
 

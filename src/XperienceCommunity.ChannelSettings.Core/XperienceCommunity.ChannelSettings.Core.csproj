@@ -16,8 +16,8 @@
     <RepositoryUrl>https://github.com/KenticoDevTrev/XperienceCommunity.ChannelSettings</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>settings, xperience, xbyk, xperience by kentico</PackageTags>
-    <PackageReleaseNotes>Updating version to match other package (Singleton DI)</PackageReleaseNotes>
-    <Version>1.2.0</Version>
+    <PackageReleaseNotes>Updated to Xperience 31.0.0</PackageReleaseNotes>
+    <Version>1.3.0</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
