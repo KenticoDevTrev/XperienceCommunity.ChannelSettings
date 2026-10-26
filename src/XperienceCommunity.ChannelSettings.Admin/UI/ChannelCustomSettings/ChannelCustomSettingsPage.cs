@@ -35,7 +35,7 @@ namespace XperienceCommunity.ChannelSettings.Admin.UI.ChannelCustomSettings
         [PageParameter(typeof(IntPageModelBinder))]
         public int ObjectId { get; set; }
 
-        public override Task ConfigurePage()
+        public override async Task ConfigurePage()
         {
             PageConfiguration.SubmitConfiguration.Label = "Save";
 
@@ -56,10 +56,10 @@ namespace XperienceCommunity.ChannelSettings.Admin.UI.ChannelCustomSettings
                     }
                 ];
             } else {
-                PopulateData();
+                await PopulateData();
             }
 
-            return base.ConfigurePage();
+            await base.ConfigurePage();
         }
 
         protected override async Task<ICommandResponse> ProcessFormData(T model, ICollection<IFormItem> formItems)
@@ -96,12 +96,11 @@ namespace XperienceCommunity.ChannelSettings.Admin.UI.ChannelCustomSettings
             }
         }
 
-        private async void PopulateData()
+        private async Task PopulateData()
         {
             if (Model != null) {
 
                 _model = await _channelCustomSettingsRepository.GetSettingsModel<T>(ObjectId);
-
             }
         }
 
