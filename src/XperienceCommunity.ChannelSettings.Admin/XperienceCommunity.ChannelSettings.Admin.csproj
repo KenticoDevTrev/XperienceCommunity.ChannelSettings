@@ -16,7 +16,7 @@
     <RepositoryUrl>https://github.com/KenticoDevTrev/XperienceCommunity.ChannelSettings</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>settings, xperience, xbyk, xperience by kentico</PackageTags>
-    <PackageReleaseNotes>CI Repository support added</PackageReleaseNotes>
+    <PackageReleaseNotes>Fixed bug with not awaiting async operations on Populate Data</PackageReleaseNotes>
     <Version>1.3.2</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
